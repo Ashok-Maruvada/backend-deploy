@@ -26,14 +26,13 @@ pipeline {
             steps{
                 sh """
                     cd terraform
-                    terraform init 
+                    terraform init
                 """
             }
         }
         stage('plan'){
             steps{
                 sh """
-                    pwd
                     cd terraform
                     terraform plan -var="app_Version=${params.appVersion}
                 """
