@@ -18,6 +18,6 @@ variable "zone_name" {
   default = "goadd.fun"
 }
 
-variable "appVersion" {
+variable "app_Version" {
   
 }
