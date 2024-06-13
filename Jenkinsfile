@@ -1,20 +1,20 @@
-pipeline{
-    agent{
+pipeline {
+    agent {
         label 'agent-1'
     }
-    options{
+    options {
         timeout(time: 45, unit: "MINUTES")
         disableConcurrentBuilds()
         ansiColor('xterm')
     }
-    parameters{
+    parameters {
         string(name: 'appVersion', defaultValue: '1.0.0', description: 'What is the application version?')
     }
-    environment{
+    environment {
         def appVersion = '' //variable declaration
         nexusUrl = 'nexus.goadd.fun:8081'
     }
-    stages{
+    stages {
         stage('print the version'){
             steps{
                 script{
@@ -48,15 +48,15 @@ pipeline{
             }
         }
     }
-    post{
-        always{
+    post {
+        always {
             echo "this will print always"
             deleteDir()
         }
-        success{
+        success {
             echo "this will print when pipeline is success"
         }
-        failure{
+        failure {
             echo "this will print when pipeline is failed"
         }
     }
